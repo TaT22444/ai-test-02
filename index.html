@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor AI → GitHub → Netlify デプロイガイド</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🚀 Cursor → Netlify ガイド</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#steps">ステップ</a></li>
+                <li><a href="#tips">コツ</a></li>
+                <li><a href="#troubleshooting">トラブルシューティング</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1 class="hero-title">CursorでAI開発<br>GitHub経由でNetlify公開</h1>
+                <p class="hero-subtitle">AIの力を借りてWebサイトを作成し、世界に公開するまでの完全ガイド</p>
+                <a href="#steps" class="cta-button">今すぐ始める</a>
+            </div>
+        </section>
+
+        <section id="steps" class="steps-section">
+            <div class="container">
+                <h2 class="section-title">📋 ステップバイステップガイド</h2>
+                
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">1</span>
+                        <h3>Cursorの準備</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>まず最初に、Cursorエディタをセットアップしましょう。</p>
+                        <ul>
+                            <li><a href="https://cursor.sh/" target="_blank">Cursor公式サイト</a>からダウンロード・インストール</li>
+                            <li>APIキーの設定（OpenAI、Claude、その他のAIプロバイダー）</li>
+                            <li>基本的な設定の確認</li>
+                        </ul>
+                        <div class="code-block">
+                            <h4>💡 CursorでAIを使う基本的な方法</h4>
+                            <pre><code class="language-text">1. Cmd+K (Mac) または Ctrl+K (Windows) でAIチャットを開く
+2. 「Reactでタスク管理アプリを作って」などの指示を入力
+3. 生成されたコードを確認・修正
+4. Tab キーで提案を受け入れ</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">2</span>
+                        <h3>プロジェクトの作成</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>AIを使って実際にWebサイトやアプリケーションを作成します。</p>
+                        <div class="code-block">
+                            <h4>🤖 AIへの効果的な指示例</h4>
+                            <pre><code class="language-text">「モダンなデザインのポートフォリオサイトを作成してください。
+以下の要件を満たしてください：
+- レスポンシブデザイン
+- ダークモード対応
+- スムーズなアニメーション
+- SEO対応のHTML構造
+- Contact フォーム付き」</code></pre>
+                        </div>
+                        <div class="tips">
+                            <h4>✨ コツ</h4>
+                            <ul>
+                                <li>具体的な要件を明確に伝える</li>
+                                <li>技術スタック（React、Vue、Vanillaなど）を指定</li>
+                                <li>デザインの参考サイトがあれば共有</li>
+                                <li>段階的に機能を追加していく</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">3</span>
+                        <h3>GitHubリポジトリの作成</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>作成したプロジェクトをGitHubで管理します。</p>
+                        <ol>
+                            <li><a href="https://github.com" target="_blank">GitHub</a>にログイン</li>
+                            <li>「New repository」をクリック</li>
+                            <li>リポジトリ名を入力（例：my-awesome-website）</li>
+                            <li>「Public」を選択（Netlifyの無料プランを使用する場合）</li>
+                            <li>「Create repository」をクリック</li>
+                        </ol>
+                        <div class="code-block">
+                            <h4>🔧 ローカルでのGit設定</h4>
+                            <pre><code class="language-bash"># プロジェクトディレクトリで実行
+git init
+git add .
+git commit -m "Initial commit: Add project files"
+git branch -M main
+git remote add origin https://github.com/yourusername/your-repo-name.git
+git push -u origin main</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">4</span>
+                        <h3>Netlifyでのデプロイ設定</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>GitHubリポジトリをNetlifyに連携して自動デプロイを設定します。</p>
+                        <ol>
+                            <li><a href="https://netlify.com" target="_blank">Netlify</a>にログイン（GitHubアカウントで連携推奨）</li>
+                            <li>「New site from Git」をクリック</li>
+                            <li>「GitHub」を選択</li>
+                            <li>デプロイしたいリポジトリを選択</li>
+                            <li>ビルド設定を確認・設定</li>
+                            <li>「Deploy site」をクリック</li>
+                        </ol>
+                        <div class="build-settings">
+                            <h4>⚙️ 主要なビルド設定</h4>
+                            <table>
+                                <tr>
+                                    <th>プロジェクトタイプ</th>
+                                    <th>Build command</th>
+                                    <th>Publish directory</th>
+                                </tr>
+                                <tr>
+                                    <td>静的HTML</td>
+                                    <td>（空欄）</td>
+                                    <td>./</td>
+                                </tr>
+                                <tr>
+                                    <td>React</td>
+                                    <td>npm run build</td>
+                                    <td>build</td>
+                                </tr>
+                                <tr>
+                                    <td>Vue.js</td>
+                                    <td>npm run build</td>
+                                    <td>dist</td>
+                                </tr>
+                                <tr>
+                                    <td>Next.js</td>
+                                    <td>npm run build</td>
+                                    <td>out</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-header">
+                        <span class="step-number">5</span>
+                        <h3>カスタムドメインの設定（オプション）</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>独自ドメインを使用したい場合の設定方法です。</p>
+                        <ol>
+                            <li>Netlifyのサイト管理画面で「Domain settings」を開く</li>
+                            <li>「Add custom domain」をクリック</li>
+                            <li>取得済みのドメインを入力</li>
+                            <li>DNS設定でCNAMEレコードを追加</li>
+                            <li>SSL証明書の自動設定を確認</li>
+                        </ol>
+                        <div class="code-block">
+                            <h4>🌐 DNS設定例</h4>
+                            <pre><code class="language-text">Type: CNAME
+Name: www (またはサブドメイン)
+Value: your-site-name.netlify.app</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tips" class="tips-section">
+            <div class="container">
+                <h2 class="section-title">💡 成功のためのコツ</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3>🤖 AI活用のコツ</h3>
+                        <ul>
+                            <li>明確で具体的な指示を出す</li>
+                            <li>段階的に機能を追加する</li>
+                            <li>コードレビューを忘れずに</li>
+                            <li>不明な部分は遠慮なく質問する</li>
+                        </ul>
+                    </div>
+                    <div class="tip-card">
+                        <h3>🔧 開発効率のコツ</h3>
+                        <ul>
+                            <li>こまめにcommit・pushする</li>
+                            <li>ブランチを活用した開発フロー</li>
+                            <li>環境変数の適切な管理</li>
+                            <li>テストコードの作成</li>
+                        </ul>
+                    </div>
+                    <div class="tip-card">
+                        <h3>🚀 デプロイのコツ</h3>
+                        <ul>
+                            <li>ビルドエラーの事前確認</li>
+                            <li>環境変数の設定</li>
+                            <li>プレビューデプロイの活用</li>
+                            <li>パフォーマンスの最適化</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="troubleshooting" class="troubleshooting-section">
+            <div class="container">
+                <h2 class="section-title">🔧 トラブルシューティング</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>ビルドが失敗する</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>package.json の dependencies を確認</li>
+                                <li>Node.js のバージョンを確認</li>
+                                <li>ビルドコマンドが正しいか確認</li>
+                                <li>環境変数が適切に設定されているか確認</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>サイトが表示されない</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Publish directory の設定を確認</li>
+                                <li>ファイルパスの大文字小文字を確認</li>
+                                <li>index.html が正しい場所にあるか確認</li>
+                                <li>ブラウザのキャッシュをクリア</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>フォームが動作しない</h3>
+                            <span class="accordion-icon">+</span>
+                        </div>
+                        <div class="accordion-content">
+                            <ul>
+                                <li>Netlify Forms の設定を確認</li>
+                                <li>フォームタグに name 属性と netlify 属性を追加</li>
+                                <li>hidden input で form-name を指定</li>
+                                <li>reCAPTCHA の設定確認</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="workflow-section">
+            <div class="container">
+                <h2 class="section-title">🔄 継続的な開発ワークフロー</h2>
+                <div class="workflow-diagram">
+                    <div class="workflow-step">
+                        <div class="workflow-icon">💻</div>
+                        <h3>Cursorで開発</h3>
+                        <p>AIを使ってコードを作成・修正</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-icon">📝</div>
+                        <h3>Git commit</h3>
+                        <p>変更をローカルでコミット</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-icon">☁️</div>
+                        <h3>GitHub push</h3>
+                        <p>リモートリポジトリに反映</p>
+                    </div>
+                    <div class="workflow-arrow">→</div>
+                    <div class="workflow-step">
+                        <div class="workflow-icon">🚀</div>
+                        <h3>自動デプロイ</h3>
+                        <p>Netlifyが自動でサイト更新</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Cursor → Netlify デプロイガイド. このサイト自体もCursorのAIで作成されました！</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
